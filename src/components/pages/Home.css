@@ -1,3 +1,36 @@
+
+/* General Styling for Home page */
+.homePage {
+
+}
+
+/* Styling for Profile Section */
+#profileDescription {
+    background-color: var(--buttonColor);
+}
+
+#profileSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+}
+
 #photoProfile {
     border-radius: 50%;
+}
+
+.myCV {
+    margin: 1rem;
+    
+}
+#cvButton {
+    background-color: var(--buttonColor);
+    padding: 0;
+    width: 100%;
+}
+
+/* Styling for overall description */
+#profileSummaryTitle {
+    text-align: center;
 }
