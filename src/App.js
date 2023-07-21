@@ -8,7 +8,7 @@ import Home from '../src/components/pages/Home.js';
 import Projects from '../src/components/pages/Projects.js';
 import About from './components/pages/Aboutme.js';
 import Contactme from '../src/components/pages/Contactme.js';
-// import Footer from '../src/components/Footer';
+import Footer from '../src/components/Footer';
 
 // We import the main Style.css file
 import './components/style.css'
@@ -16,7 +16,6 @@ import './components/style.css'
 function App() {
   return (
     <Router>
-      <div>
       <NavTabs/>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,7 +23,7 @@ function App() {
           <Route path="aboutme" element={<About />} />
           <Route path="contactme" element={<Contactme />} />
         </Routes>  
-      </div>
+      <Footer/>
     </Router>
   );
 }
