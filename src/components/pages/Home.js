@@ -15,7 +15,7 @@ function Home() {
                     </div>
                 </div>
                 <div className='myCV'>
-                    <h2> CV <a href='#'></a></h2>
+                     <a href='#'><h2> CV </h2></a>
                 </div>
             </div>
             <div id='profileDescription'>
