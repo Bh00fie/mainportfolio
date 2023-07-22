@@ -1,0 +1,12 @@
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    border: none!important;
+    
+}
+
+.nav {
+    font-weight: 700!important;
+    font-size: 1.25rem;
+    margin-top: 1rem ;
+}
