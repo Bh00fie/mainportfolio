@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 function NavTabs() {
   return (
-    <ul className="nav nav-tabs">
+    <ul className="nav nav-tabs montserratFont">
       <li className="nav-item">
         <NavLink to="/" end
           className={({ isActive }) =>

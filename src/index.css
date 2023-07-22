@@ -1,5 +1,5 @@
 * {
-  box-sizing: border-box;  
+  box-sizing: border-box; 
 }
 
 :root {
@@ -14,10 +14,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 
 #root {
   margin-right: 10%;
@@ -26,4 +22,8 @@ code {
 
 a {
   text-decoration: none !important;
+}
+
+.montserratFont {
+  font-family: 'Montserrat', sans-serif;
 }

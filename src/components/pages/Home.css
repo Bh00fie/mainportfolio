@@ -1,36 +1,68 @@
-
-/* General Styling for Home page */
-.homePage {
-
-}
-
+/* Styling for Home page */
 /* Styling for Profile Section */
-#profileDescription {
-    background-color: var(--buttonColor);
-}
-
 #profileSection{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 72.5vh;
+    
 }
 
+#informationCard {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+/* Image Styling */
 #photoProfile {
     border-radius: 50%;
 }
 
+/* User info */
+#informationCard {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+#profileDescription {
+    background-color: var(--buttonColor);
+    border-radius: 0.35rem;
+    padding: 1rem;
+}
+#nameProfile {
+    font-weight: 600;
+}
+
+/* Social Styling */
+#socialProfile {
+    display: flex;
+    justify-content: center;
+}
+.socialLink {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight: 600;
+}
+
+/* CV Section  */
 .myCV {
-    margin: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
     
 }
 #cvButton {
     background-color: var(--buttonColor);
-    padding: 0;
+    padding: 0.5rem;
     width: 100%;
+    font-size: 1.5rem;
+    border-radius: 0.35rem;
+    border: none;
+    font-weight: 600;
 }
 
-/* Styling for overall description */
+/* Styling for User overall description */
 #profileSummaryTitle {
     text-align: center;
 }
