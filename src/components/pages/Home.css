@@ -1,4 +1,7 @@
 /* Styling for Home page */
+/* #homePage {
+    height: 90vh;
+} */
 /* Styling for Profile Section */
 #profileSection{
     display: flex;
@@ -48,7 +51,6 @@
 .myCV {
     margin-top: 1rem;
     margin-bottom: 1rem;
-    
     
 }
 #cvButton {

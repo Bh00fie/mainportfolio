@@ -1,0 +1,28 @@
+#projectPage {
+    margin-top: 7.5vh;
+    margin-bottom: 10vh;
+}
+
+#projectGrid {
+    margin-top: 2rem;
+}
+
+#projectTitle {
+    text-align: center;
+}
+
+
+
+.col {
+    display: flex;
+    justify-content: center;
+} 
+
+.projectCardGroup {
+    width: 35rem;
+
+}
+
+.card-img-top {
+    height: 20vh;
+}

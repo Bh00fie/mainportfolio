@@ -9,6 +9,8 @@ import Projects from '../src/components/pages/Projects.js';
 import About from './components/pages/Aboutme.js';
 import Contactme from '../src/components/pages/Contactme.js';
 import Footer from '../src/components/Footer';
+import FixedCV from '../src/components/quickCV.js';
+
 
 // We import the main Style.css file
 import './components/style.css'
@@ -24,6 +26,7 @@ function App() {
           <Route path="contactme" element={<Contactme />} />
         </Routes>  
       <Footer/>
+      <FixedCV/>
     </Router>
   );
 }

@@ -1,8 +1,6 @@
 /* Contact Me General Styling */
 .contactContainer {
-    height: 86.30vh;
-    margin-right: 15% ;
-    margin-left: 15% ;
+    margin: 7.5vh 15%;
     display: flex;
     justify-content: center;
     align-items: center;

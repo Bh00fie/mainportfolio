@@ -32,7 +32,7 @@ function Contactme(props) {
         </div>
       ) : (
         <form ref={form} onSubmit={sendEmail}>
-          <h1 id='contactmeTitle'>Get in touch with me:</h1>
+          <h1 id='contactmeTitle' className='title'>Get in touch with me:</h1>
           <div id='inputContainer'>
             <label className='contactLabel' id='nameForm'>Name</label>
             <input className='contactInput' id='nameFormInput' type='text' name='user_name' />
