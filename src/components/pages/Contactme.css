@@ -1,0 +1,40 @@
+/* Contact Me General Styling */
+.contactContainer {
+    height: 86.30vh;
+    margin-right: 15% ;
+    margin-left: 15% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    margin-right: 0em;  /* Under 1550px change this to zero */
+    width: 50vw; /*  Under 775px change this to 75vw */
+}
+
+#contactmeTitle {
+    text-align: center;
+}
+.contactLabel, #sendMessage {
+    text-align: center;
+    font-weight: 600;
+}
+
+.contactInput, #sendMessage {
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    height: 3.5rem;
+}
+
+#messageFormInput {
+    max-height: 12rem;
+    min-height: 12rem;
+}
+
+
+

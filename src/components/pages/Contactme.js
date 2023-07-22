@@ -32,14 +32,16 @@ function Contactme(props) {
         </div>
       ) : (
         <form ref={form} onSubmit={sendEmail}>
-          <h1>Get in touch with us:</h1>
-          <label>Name</label>
-          <input type='text' name='user_name' />
-          <label>Email</label>
-          <input type='email' name='user_email' />
-          <label>Message</label>
-          <textarea name='message' />
-          <input type='submit' value='Send' className='sendButton' />
+          <h1 id='contactmeTitle'>Get in touch with me:</h1>
+          <div id='inputContainer'>
+            <label className='contactLabel' id='nameForm'>Name</label>
+            <input className='contactInput' id='nameFormInput' type='text' name='user_name' />
+            <label className='contactLabel' id='emailForm'>Email</label>
+            <input className='contactInput' id='emailFormInput' type='email' name='user_email' />
+            <label className='contactLabel' id='messageForm'>Message</label>
+            <textarea className='contactInput' id='messageFormInput' name='message' />
+            <input id='sendMessage' type='submit' value='Send' className='sendButton' />
+          </div>
         </form>
       )}
     </div>
