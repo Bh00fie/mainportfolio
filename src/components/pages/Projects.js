@@ -1,7 +1,7 @@
 import React from 'react';
-import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import {Card, Col, Row} from 'react-bootstrap';
+// import Col from 'react-bootstrap/Col';
+// import Row from 'react-bootstrap/Row';
 import "./Project.css"
 
 function Projects() {
