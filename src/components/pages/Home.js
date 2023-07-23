@@ -1,11 +1,13 @@
 import React from 'react';
 import './Home.css' 
+import icon from '../Images/icon.png'
+import CV from '../documents/Abhinandanthour.pdf'
 
 function Home() {
     return (
         <div id='homePage'>
             <div id='profileSection'>
-                <img className="profileCard" id='photoProfile' src='https://placehold.co/400' alt='photoProfile'/>    
+                <img className="profileCard" id='photoProfile' src={icon} alt='photoProfile'/>    
                 <div id='informationCard'>
                     <div className='profileCard montserratFont' id='profileDescription'>
                         <h3 id='nameProfile'> Abhinandan Thour </h3>
@@ -16,7 +18,7 @@ function Home() {
                         </div>
                     </div>
                     <div className='myCV'>
-                        <a href="./abhinandanthour.pdf" download="abhinandanthourCV.pdf">
+                        <a href={CV} download="abhinandanthourCV.pdf">
                             <button id='cvButton'>CV</button>
                         </a>
                     </div>
