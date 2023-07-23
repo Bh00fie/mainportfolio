@@ -3,6 +3,12 @@
     position: fixed;
     bottom: 1vh ;
     right: 1vh ;
-    width: 5rem; 
+    width: 7.55rem; 
     /* Change width to 5rem after 750px */
+}
+
+@media only screen and (max-width: 750px) {
+    .fixedCVButton {
+        width: 5rem;
+    }
 }
