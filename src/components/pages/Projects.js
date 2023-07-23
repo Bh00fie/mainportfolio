@@ -10,24 +10,24 @@ function Projects() {
 
     const cardInformation = [
         {
-            title: "Project1",
+            title: "Workout Kitchen",
             image: "https://placehold.co/200",
             text: "ABC",
         },  
         {
-            title: "Project2",
-            image: "https://placehold.co/200",
-            text: "ABC",
+            title: "Health Tracker",
+            image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
+            text: "Work In Progress",
         },  
         {
-            title: "Project2",
-            image: "https://placehold.co/200",
-            text: "ABC",
+            title: "Mechanical Engineering Project",
+            image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
+            text: "Work In Progress",
         },  
         {
-            title: "Project2",
-            image: "https://placehold.co/200",
-            text: "ABC",
+            title: "Financial Portfolio Tracker",
+            image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
+            text: "Work In Progress",
         },  
     ]
       

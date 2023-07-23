@@ -42,6 +42,10 @@
     resize: none;
 }
 
+#sendMessage {
+    background-color: var(--buttonColor);
+    border: none;
+}
 
 
 
