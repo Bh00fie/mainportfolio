@@ -9,8 +9,19 @@
     display: flex;
     flex-direction: column;
     margin-top: 2rem;
-    margin-right: 0em;  /* Under 1550px change this to zero */
     width: 50vw; /*  Under 775px change this to 75vw */
+}
+
+@media only screen and (max-width: 790px) {
+    #inputContainer {
+        width: 62.5vw; 
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    #inputContainer {
+        width: 75vw; 
+    }
 }
 
 .contactLabel, #sendMessage {
