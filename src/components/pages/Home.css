@@ -1,13 +1,18 @@
 /* Styling for Home page */
-/* #homePage {
-    height: 90vh;
-} */
 /* Styling for Profile Section */
 #profileSection{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 72.5vh;   
+    /* height: 72.5vh;    */
+    margin-top: 40%;
+    margin-bottom: 40%;
+}
+
+@media only screen and (max-width: 793px) {
+    #profileSection {
+        flex-direction: column;
+    }
 }
 
 #informationCard {

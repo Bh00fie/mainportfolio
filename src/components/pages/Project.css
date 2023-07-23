@@ -1,14 +1,9 @@
-#projectPage {
-    margin-top: 7.5vh;
-    margin-bottom: 10vh;
+#contactContainer, #aboutmePage, #projectPage {
+    margin: 7.5vh 15%;
 }
 
 #projectGrid {
     margin-top: 2rem;
-}
-
-#projectTitle {
-    text-align: center;
 }
 
 

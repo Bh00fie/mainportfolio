@@ -2,8 +2,8 @@ import React from 'react';
 
 function About() {
     return (
-        <div>
-            <h1> C </h1>
+        <div id='aboutmePage'>
+            <h1 id='aboutmeTitle' className='title'>About me:</h1>
         </div>
     );
 }

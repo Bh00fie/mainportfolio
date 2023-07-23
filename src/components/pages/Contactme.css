@@ -1,11 +1,9 @@
 /* Contact Me General Styling */
-.contactContainer {
-    margin: 7.5vh 15%;
+#contactContainer {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 #inputContainer {
     display: flex;
@@ -15,9 +13,6 @@
     width: 50vw; /*  Under 775px change this to 75vw */
 }
 
-#contactmeTitle {
-    text-align: center;
-}
 .contactLabel, #sendMessage {
     text-align: center;
     font-weight: 600;

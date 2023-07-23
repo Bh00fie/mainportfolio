@@ -24,7 +24,7 @@ function Contactme(props) {
   };
 
   return (
-    <div className='contactContainer'>
+    <div id='contactContainer'>
       {isEmailSent ? (
         <div className='confirmationMessage'>
           <p>Email sent successfully! ✅</p>
