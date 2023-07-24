@@ -45,6 +45,7 @@
 #sendMessage {
     background-color: var(--buttonColor);
     border: none;
+    font-weight: 600;
 }
 
 
