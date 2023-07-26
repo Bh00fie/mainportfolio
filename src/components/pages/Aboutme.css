@@ -6,8 +6,21 @@
 .aboutmeText {
   display: flex; 
   flex-direction: column;
+  align-items: center;
   margin: 1rem;
 }
 
+.aboutmePhoto {
+  width: 16rem;
+  height: 12rem;
+}
 
-
+@media only screen and (max-width: 1450px) {
+    .aboutmeParagraph {
+        flex-direction: column;
+        justify-content: center;
+    }
+    #aboutmeSecondParagraph {
+      flex-direction: column-reverse;
+    }
+}
