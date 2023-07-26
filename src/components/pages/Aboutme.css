@@ -1,0 +1,10 @@
+.aboutmeParagraph {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.aboutmeText {
+  display: flex; 
+  flex-direction: column; 
+}
+
