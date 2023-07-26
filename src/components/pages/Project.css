@@ -2,6 +2,12 @@
     margin: 7.5vh 15%;
 }
 
+@media only screen and (max-width: 1000px) {
+    #contactContainer, #aboutmePage, #projectPage {
+        margin: 7.5vh 5%;
+    }
+}
+
 #projectGrid {
     margin-top: 2rem;
 }
