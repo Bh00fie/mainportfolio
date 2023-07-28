@@ -7,6 +7,7 @@
   display: flex; 
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 1rem;
 }
 
@@ -14,6 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  justify-content: center;
 }
 
 .aboutmePhoto {
@@ -21,7 +23,10 @@
   max-height: 40vh;
   object-fit: cover;
   border-radius: 0.35rem;
+}
 
+#aboutmeFirstParagraph {
+  margin-top: 2rem;
 }
 
 @media only screen and (max-width: 1450px) {
@@ -31,9 +36,6 @@
     }
     #aboutmeSecondParagraph {
       flex-direction: column-reverse;
-    }
-    #aboutmeFirstParagraph {
-      margin-top: 2rem;
     }
     .aboutmePhoto {
       max-width: 50vw;
