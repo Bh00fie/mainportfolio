@@ -1,4 +1,9 @@
 /* Styling for Home page */
+#homePage, #projectPage, #aboutmePage, #contactContainer  {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 /* Styling for Profile Section */
 #profileSection{
     display: flex;
@@ -7,14 +12,13 @@
     /* height: 72.5vh;    */
     margin-top: 20%;
     margin-bottom: 25%;
+    flex: 1;
 }
-
 @media only screen and (max-width: 793px) {
     #profileSection {
         flex-direction: column;
     }
 }
-
 #informationCard {
     display: flex;
     flex-direction: column;
@@ -24,6 +28,13 @@
 /* Image Styling */
 #photoProfile {
     border-radius: 50%;
+    width: 18rem;
+    min-width: 10rem;
+}
+@media only screen and (max-width: 275px) {
+    #photoProfile {
+    width: 100vw;
+    }
 }
 
 /* User info */
