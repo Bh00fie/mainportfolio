@@ -2,7 +2,7 @@
     z-index: 0;
     position: fixed;
     bottom: 1vh ;
-    right: 1vh ;
+    right: 2vh ;
     width: 7.55rem; 
     /* Change width to 5rem after 750px */
 }
