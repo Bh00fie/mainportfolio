@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
 import "./Project.css"
+import { Link } from 'react-router-dom';
 
 function Projects() {
 
@@ -9,8 +10,9 @@ function Projects() {
     const cardInformation = [
         {
             title: "Workout Kitchen",
-            image: "https://placehold.co/200",
-            text: "ABC",
+            image: "https://github.com/Allen-EC/workout_kitchen/raw/main/assets/images/screenshot.png",
+            text: "Version 2 in progress",
+            linkProject: "https://allen-ec.github.io/workout_kitchen/"
         },  
         {
             title: "Health Tracker",
@@ -41,9 +43,11 @@ function Projects() {
                 {cardInformation.map((card, idx) => (
                 <Col key={idx}>
                     <Card className='projectCardGroup'>
-                    <Card.Img variant="top" src={card.image} />
+                    <Card.Img variant="top" src={card.image} /> 
                     <Card.Body>
-                        <Card.Title>{card.title}</Card.Title>
+                        <Link to={card.linkProject} target="_blank">
+                            <Card.Title>{card.title} </Card.Title>
+                        </Link>
                         <Card.Text>{card.text}</Card.Text>
                     </Card.Body>
                     </Card>

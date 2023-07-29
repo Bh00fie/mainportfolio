@@ -40,3 +40,16 @@
     width: 100%;
 
 }
+
+/* Card Styling */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.card-title {
+    color: black!important;
+    font-weight: 600!important; 
+}
