@@ -1,5 +1,5 @@
 /* Styling for Home page */
-#homePage, #projectPage, #aboutmePage, #contactContainer  {
+#homePage {
     display: flex;
     flex-direction: column;
     min-height: 100vh;

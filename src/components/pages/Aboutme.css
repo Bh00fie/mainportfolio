@@ -1,3 +1,11 @@
+#aboutmePage {
+  flex: 1; /* This will make the aboutmePage take up the remaining space */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 .aboutmeParagraph {
   display: flex;
   margin-bottom: 1rem;

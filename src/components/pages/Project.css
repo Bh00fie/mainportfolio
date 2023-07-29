@@ -1,16 +1,33 @@
+#projectPage {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
 #contactContainer, #aboutmePage, #projectPage {
     margin: 7.5vh 15%;
+    margin-bottom: 0;
 }
+
+#contactContainer, #aboutmePage, #projectPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    height: auto;
+  }
 
 @media only screen and (max-width: 1000px) {
     #contactContainer, #aboutmePage, #projectPage {
         margin: 7.5vh 5%;
+        margin-bottom: 0;
     }
 }
 
 #projectGrid {
     margin-top: 2rem;
-    flex: 1;
 }
 
 
