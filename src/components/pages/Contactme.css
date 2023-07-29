@@ -1,12 +1,4 @@
 /* Contact Me General Styling */
-#contactContainer {
-    flex: 1; /* This will make the contactContainer take up the remaining space */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-}
-
 #inputContainer {
     display: flex;
     flex-direction: column;
@@ -49,6 +41,7 @@
     border: none;
     font-weight: 600;
     margin-top: auto;
+    margin-bottom: 0;
 }
 
 

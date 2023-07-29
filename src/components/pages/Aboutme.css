@@ -1,9 +1,5 @@
 #aboutmePage {
-  flex: 1; /* This will make the aboutmePage take up the remaining space */
-  display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
 }
 
 .aboutmeParagraph {
@@ -35,6 +31,10 @@
 
 #aboutmeFirstParagraph {
   margin-top: 2rem;
+}
+
+#aboutmeThirdParagraph, #aboutmeThirdText {
+  margin-bottom: 0;
 }
 
 @media only screen and (max-width: 1450px) {

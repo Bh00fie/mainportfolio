@@ -1,21 +1,11 @@
-#projectPage {
-    flex: 1; 
+#contactContainer, #aboutmePage, #projectPage {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
-}
-
-#contactContainer, #aboutmePage, #projectPage {
+    flex: 1;
     margin: 7.5vh 15%;
     margin-bottom: 0;
-}
-
-#contactContainer, #aboutmePage, #projectPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1rem;
   }
 
 @media only screen and (max-width: 1000px) {
