@@ -11,7 +11,7 @@ function NavTabs() {
             isActive ? 'nav-link active' : 'nav-link'
           }
         >
-          Name
+          Home
         </NavLink>
       </li>
       <li className="nav-item">
