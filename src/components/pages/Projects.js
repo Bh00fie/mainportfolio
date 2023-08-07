@@ -18,6 +18,7 @@ function Projects() {
             title: "Cover Letter Generator with AI!",
             image: "https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/nouamanetazi/cover-letter-generator.png",
             text: "Project that allows the user to upload their CV and the Job description to get a quick tailored cover letter using ChatGPT API!",
+            linkProject: "https://reactcoverlettergenerator.netlify.app"
         },  
         {
             title: "Mechanical Engineering Project",
