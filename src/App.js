@@ -6,7 +6,7 @@ import Projects from './components/pages/3 - Projects.js';
 import About from './components/pages/4 - Aboutme.js';
 import Contactme from './components/pages/5 - Contactme.js';
 import Footer from './components/pages/6 - Footer.js';
-import FixedCV from './components/pages/quickCV.js';
+// import FixedCV from './components/pages/quickCV.js';
 import ScrollDown from '../src/components/pages/ScrollDownFunction.js';
 
 function App() {

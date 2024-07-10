@@ -11,7 +11,7 @@ function Home() {
                 <div id='informationCard'>
                     <div className='profileCard montserratFont' id='profileDescription'>
                         <h3 id='nameProfile'> Abhinandan Thour </h3>
-                        <h4 id='jobProfile'> Front-End Developer</h4>
+                        <h4 id='jobProfile'> Full Stack Developer</h4>
                         <div id='socialProfile'> 
                             <a id='GitHub' className='socialLink' href='https://github.com/Bh00fie' target='_blank' rel="noreferrer" >GitHub</a>
                             <a id="LinkedIn" className='socialLink' href='https://www.linkedin.com/in/abhinandanthour' target='_blank' rel="noreferrer">LinkedIn</a>
