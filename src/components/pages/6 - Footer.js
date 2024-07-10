@@ -2,12 +2,12 @@ import React from 'react';
 import './style.css';
 
 function Footer() {
-  const handleScrollDown = () => {
-    const element = document.getElementById('homePage');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  // const handleScrollDown = () => {
+  //   const element = document.getElementById('homePage');
+  //   if (element) {
+  //     element.scrollIntoView({ behavior: 'smooth' });
+  //   }
+  // };
 
   return (
     <div id='footerSection'>
