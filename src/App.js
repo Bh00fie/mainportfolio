@@ -13,7 +13,7 @@ function App() {
   const homeRef = useRef(null);
   const whoisabhiRef = useRef(null);
   const projectsRef = useRef(null);
-  const aboutRef = useRef(null);
+  // const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
   return (
