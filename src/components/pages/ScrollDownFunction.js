@@ -1,5 +1,5 @@
 import React from 'react';
-import './Home.css';
+import './style.css';
 
 function ScrollDown({ scrollToRef }) {
   const handleClick = () => {
@@ -7,9 +7,10 @@ function ScrollDown({ scrollToRef }) {
   };
 
   return (
-    <button onClick={handleClick}>
-      Click Here to Smoothly Scroll Down
+    <div id="scrollButtonDiv">
+    <button id="scrollDownButton" onClick={handleClick}>V
     </button>
+    </div>
   );
 }
 

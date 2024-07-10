@@ -1,5 +1,5 @@
 import React from 'react';
-import './Aboutme.css';
+import './style.css';
 import italyOrigin from '../Images/italy.jpg'
 import cumminsPhoto from '../Images/cummins.JPG'
 import codingPhoto from '../Images/programming.png'

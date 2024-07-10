@@ -1,6 +1,6 @@
 import React from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
-import "./Project.css"
+import './style.css';
 import { Link } from 'react-router-dom';
 
 function Projects() {

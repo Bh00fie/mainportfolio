@@ -1,0 +1,279 @@
+/* ----------- OVERALL STYLING ---------- */
+
+#homePage {
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
+}
+/* Styling for Profile Section */
+#profileSection{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 72.5vh;    */
+    margin-top: 20%;
+    margin-bottom: 25%;
+    flex: 1;
+}
+@media only screen and (max-width: 793px) {
+    #profileSection {
+        flex-direction: column;
+    }
+}
+#informationCard {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+/* Image Styling */
+#photoProfile {
+    border-radius: 50%;
+    width: 18rem;
+    min-width: 10rem;
+}
+@media only screen and (max-width: 275px) {
+    #photoProfile {
+    width: 100vw;
+    }
+}
+
+#informationCard {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+#profileDescription {
+    background-color: var(--buttonColor);
+    border-radius: 0.35rem;
+    padding: 1rem;
+}
+#nameProfile {
+    font-weight: 600;
+}
+
+/* Social Styling */
+#socialProfile {
+    display: flex;
+    justify-content: center;
+}
+.socialLink {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-weight: 600;
+}
+
+/* CV Section  */
+.myCV {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    
+}
+#cvButton {
+    background-color: var(--buttonColor);
+    padding: 0.5rem;
+    width: 100%;
+    font-size: 1.5rem;
+    border-radius: 0.35rem;
+    border: none;
+    font-weight: 600;
+}
+
+/* ---- WHOSABHI PAGE ---- */
+#profileSummary{
+margin-top: 2.5vh;
+margin-bottom: 2.5vh;
+}
+
+#profileSummaryTitle {
+    text-align: center;
+}
+
+/* ---- ABOUT ME PAGE ---- */
+#aboutmePage {
+    justify-content: flex-start;
+} 
+.aboutmeParagraph {
+    display: flex;
+    /* margin-bottom: 1rem; */
+}
+.aboutmeText {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* margin: 1rem; */
+}
+.aboutmePhotoMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+} 
+.aboutmePhoto {
+    min-width: 20vw;
+    max-height: 40vh;
+    object-fit: cover;
+    border-radius: 0.35rem;
+} 
+#aboutmeFirstParagraph {
+    margin-top: 2rem;
+}
+#aboutmeThirdParagraph, #aboutmeThirdText {
+    margin-bottom: 0;
+} 
+@media only screen and (max-width: 1450px) {
+      .aboutmeParagraph {
+          flex-direction: column;
+          justify-content: center;
+      }
+      #aboutmeSecondParagraph {
+        flex-direction: column-reverse;
+      }
+      .aboutmePhoto {
+        max-width: 50vw;
+        margin-right: auto;
+        margin-left: auto;
+      }
+}
+  
+
+/* ---- PROJECT PAGE ---- */
+#contactContainer, #aboutmePage, #projectPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* padding: 1rem; */
+    flex: 1;
+    margin: 2.5vh 15%;
+    /* margin-bottom: 0; */
+  }
+  @media only screen and (max-width: 1000px) {
+      #contactContainer, #aboutmePage, #projectPage {
+          margin: 2.5vh 5%;
+          /* margin-bottom: 0; */
+    }
+}
+
+#projectGrid {
+    margin-top: 2rem;
+    width: 100%;
+}
+.col {
+    display: flex;
+    justify-content: center;
+} 
+.projectCardGroup {
+    width: 35rem;
+}
+
+/* Image Styling */
+.card-img-top {
+    height: 20vh;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 100%; 
+}
+
+/* Card Styling */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+.card-title {
+    color: black!important;
+    font-weight: 600!important; 
+}
+
+
+/* ---- CONTACT ME PAGE ---- */
+#inputContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+    width: 50vw; /*  Under 775px change this to 75vw */
+}
+@media only screen and (max-width: 790px) {
+    #inputContainer {
+        width: 62.5vw; 
+    }
+}
+@media only screen and (max-width: 490px) {
+    #inputContainer {
+        width: 75vw; 
+    }
+}
+.contactLabel, #sendMessage {
+    text-align: center;
+    font-weight: 600;
+}
+.contactInput, #sendMessage {
+    border-radius: 0.5rem;
+    margin-bottom: 2rem;
+    height: 3.5rem;
+    border: 2px black solid;
+}
+#messageFormInput {
+    max-height: 12rem;
+    min-height: 12rem;
+    resize: none;
+}
+#sendMessage {
+    background-color: var(--buttonColor);
+    border: none;
+    font-weight: 600;
+    margin-top: auto;
+    margin-bottom: 0;
+}
+
+
+/* ---- SCROLL DOWN BUTTON ---- */
+#scrollButtonDiv {
+    display: flex;
+    justify-content: center;
+    /* margin-bottom: 3rem; */
+}
+
+#scrollDownButton{
+    text-align: center;
+    background-color: var(--buttonColor);
+    padding: 0.5rem;
+    width: 10vw;
+    font-size: 1.5rem;
+    border-radius: 0.35rem;
+    border: none;
+    font-weight: 800;
+}
+
+/* ---- FOOTER ---- */
+footer {
+    text-align: center;
+    padding: 1rem;
+    font-weight: 700;
+  }
+
+#footerSection {
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* ---- CV Fixed BUTTON  ---- */
+.fixedCVButton {
+    z-index: 0;
+    position: fixed;
+    bottom: 1vh ;
+    right: 2vh ;
+    width: 7.55rem; 
+    /* Change width to 5rem after 750px */
+}
+@media only screen and (max-width: 750px) {
+    .fixedCVButton {
+        width: 5rem;
+    }
+}
+
