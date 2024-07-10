@@ -5,9 +5,8 @@ import Projects from '../src/components/pages/Projects.js';
 import About from './components/pages/Aboutme.js';
 import Contactme from '../src/components/pages/Contactme.js';
 import ScrollDown from '../src/components/pages/ScrollDownFunction.js';
-import Footer from '../src/components/Footer';
-import FixedCV from '../src/components/quickCV.js';
-import './components/style.css';
+import Footer from '../src/components/pages/Footer';
+import FixedCV from './components/pages/quickCV.js';
 
 function App() {
   const homeRef = useRef(null);

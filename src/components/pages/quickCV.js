@@ -1,6 +1,6 @@
 import React from "react";
 import "./quickCV.css"
-import CV from './documents/Abhinandanthour.pdf'
+import CV from '../documents/Abhinandanthour.pdf'
 
 function fixedCV() {
     return (
