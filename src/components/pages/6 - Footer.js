@@ -11,9 +11,9 @@ function Footer() {
 
   return (
     <div id='footerSection'>
-      <div id='scrollButtonDiv'>
+      {/* <div id='scrollButtonDiv'>
         <button id="scrollDownButton" onClick={handleScrollDown}> Λ </button>
-      </div>
+      </div> */}
       <div>
           <footer id="footer" className='montserratFont'>
           © {new Date().getFullYear()} Abhinandan Thour - All rights reserved.

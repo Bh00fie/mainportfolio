@@ -7,7 +7,7 @@ import codingPhoto from '../Images/programming.png'
 function About() {
     return (
         <div id='aboutmePage'>
-            <h1 id='aboutmeTitle' className='title'>About me:</h1>
+            <h1 id='aboutmeTitle' className='title'>More about me:</h1>
             <div className = 'aboutmeParagraph' id='aboutmeFirstParagraph' >
                 <div className='aboutmePhotoMain'>
                     <img className = 'aboutmePhoto' id='aboutmeFirstPhoto' src = {italyOrigin} alt='italy'/>

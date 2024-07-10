@@ -3,11 +3,11 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import Home from './components/pages/1 - Home.js';
 import WhosAbhi from './components/pages/2 - WhosAbhi.js';
 import Projects from './components/pages/3 - Projects.js';
-import About from './components/pages/4 - Aboutme.js';
+// import About from './components/pages/4 - Aboutme.js';
 import Contactme from './components/pages/5 - Contactme.js';
 import Footer from './components/pages/6 - Footer.js';
 // import FixedCV from './components/pages/quickCV.js';
-import ScrollDown from '../src/components/pages/ScrollDownFunction.js';
+// import ScrollDown from '../src/components/pages/ScrollDownFunction.js';
 
 function App() {
   const homeRef = useRef(null);
@@ -22,20 +22,20 @@ function App() {
         <div ref={homeRef}>
           <Home />
         </div>
-        <ScrollDown scrollToRef={whoisabhiRef} />
+        {/* <ScrollDown scrollToRef={whoisabhiRef} /> */}
         <div ref={whoisabhiRef}>
           <WhosAbhi />
         </div>
-        <ScrollDown scrollToRef={projectsRef} />
-        <div ref={projectsRef}>
+        {/* <ScrollDown scrollToRef={projectsRef} /> */}
+        <div className='borderSection' ref={projectsRef}>
           <Projects />
         </div>
-        <ScrollDown scrollToRef={aboutRef} />
-        <div ref={aboutRef}>
+        {/* <ScrollDown scrollToRef={aboutRef} />
+        <div className='borderSection' ref={aboutRef}>
           <About />
-        </div>
-        <ScrollDown scrollToRef={contactRef} />
-        <div ref={contactRef}>
+        </div> */}
+        {/* <ScrollDown scrollToRef={contactRef} /> */}
+        <div className='borderSection' ref={contactRef}>
           <Contactme />
         </div>
         {/* <FixedCV /> */}

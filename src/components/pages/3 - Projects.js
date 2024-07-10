@@ -1,6 +1,7 @@
 import React from 'react';
 import {Card, Col, Row} from 'react-bootstrap';
 import './style.css';
+import coverLetterGenerator from '../Images/CoverLetterGeneator.png'
 import { Link } from 'react-router-dom';
 
 function Projects() {
@@ -16,7 +17,7 @@ function Projects() {
         },  
         {
             title: "Cover Letter Generator with AI!",
-            image: "https://cdn-thumbnails.huggingface.co/social-thumbnails/spaces/nouamanetazi/cover-letter-generator.png",
+            image: coverLetterGenerator,
             text: "Project that allows the user to upload their CV and the Job description to get a quick tailored cover letter using ChatGPT API!",
             linkProject: "https://reactcoverlettergenerator.netlify.app"
         },  
