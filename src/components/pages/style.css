@@ -150,7 +150,7 @@ margin-bottom: 5vh;
 }
 
 .borderSection{
-    border-top: black 3px solid;
+    border-top: black 2px solid;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -160,18 +160,65 @@ margin-bottom: 5vh;
     }
 }
 
-#projectGrid {
-    margin: 2rem;
+#carouselContainer {
+    position: relative;
     width: 100%;
-}
-.col {
+    max-width: 80rem;
+    margin: 0 auto;
     display: flex;
+    align-items: center;
     justify-content: center;
-} 
-.projectCardGroup {
-    width: 35rem;
-}
-
+  }
+  
+  #cardContainer {
+    width: 100%;
+    height: 30rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .projectCard {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  
+  .projectCard.active {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  
+  .arrow {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0 1rem;
+    z-index: 10;
+  }
+  
+  .left-arrow {
+    left: 0;
+  }
+  
+  .right-arrow {
+    right: 0;
+  }
+  
+  @media (max-width: 48rem) {
+    #cardContainer {
+      height: 40rem;
+    }
+    
+    .arrow {
+      font-size: 1.5rem;
+      padding: 0 0.5rem;
+    }
+  }
+  
 /* Image Styling */
 .card-img-top {
     height: 20vh;

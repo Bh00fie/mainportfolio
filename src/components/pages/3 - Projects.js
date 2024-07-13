@@ -1,12 +1,13 @@
-import React from 'react';
-import {Card, Col, Row} from 'react-bootstrap';
-import './style.css';
-import coverLetterGenerator from '../Images/CoverLetterGeneator.png'
+import React, { useState } from 'react';
+import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './style.css';
+import coverLetterGenerator from '../Images/CoverLetterGeneator.png';
 
 function Projects() {
 
  // Creating an array of for each cards containing their information 
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const cardInformation = [
         {
@@ -32,35 +33,54 @@ function Projects() {
             text: "Work In Progress",
         },  
     ]
+
+  const nextCard = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === cardInformation.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevCard = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? cardInformation.length - 1 : prevIndex - 1
+    );
+  };
       
     return (
         <div id='projectPage'>
-        <>
-            {/* Code to create a grid of cards copied from React-Bootstrap */}
             <h1 id='projectTitle' className='title'>Projects:</h1>
-            <div id='projectGrid'>
-            <Row xs={1} md={2} className="g-4">
-                {/* g-4 stands for the spacing between cards when in a row */}
-                {/* Creating an array of cards and give them an index value idx */}
+            
+            <div id='carouselContainer'>
+                <button onClick={prevCard} className="arrow left-arrow">&lt;</button>
+        
+            <div id='cardContainer'>
                 {cardInformation.map((card, idx) => (
-                <Col key={idx}>
-                    <Card className='projectCardGroup'>
-                    <Card.Img variant="top" src={card.image} /> 
-                    <Card.Body>
-                        <Link to={card.linkProject} target="_blank">
-                            <Card.Title>{card.title} </Card.Title>
-                        </Link>
-                        <Card.Text>{card.text}</Card.Text>
-                    </Card.Body>
-                    </Card>
-                </Col>
-                ))}
-            </Row>
+            
+            <div 
+              key={idx} 
+              className={`projectCard ${idx === currentIndex ? 'active' : ''}`}
+            >
+              <Card>
+                <Card.Img variant="top" src={card.image} />
+                <Card.Body>
+                  <Link to={card.linkProject} target="_blank">
+                    <Card.Title>{card.title}</Card.Title>
+                  </Link>
+                  <Card.Text>{card.text}</Card.Text>
+                </Card.Body>
+              </Card>
             </div>
-        </>
+          ))}
+        </div>
+        
+        <button onClick={nextCard} className="arrow right-arrow">&gt;</button>
+      </div>
+
+      <div id='cardCounter'>
+        {currentIndex + 1} / {cardInformation.length}
+      </div>
     </div>
-    );
-      
+  );
 }
 
 
