@@ -4,6 +4,7 @@
 }
 
 :root {
+  --backgroundColor: #FFFFFF
   --buttonColor: #dddddd;
 } 
 
@@ -20,6 +21,7 @@ body {
 #root {
   margin-right: 10%;
   margin-left: 10%;
+  background-color: var(--backgroundColor);
 }
 
 .main-content {
