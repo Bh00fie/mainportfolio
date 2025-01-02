@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Home from './components/pages/1 - Home.js';
 import WhosAbhi from './components/pages/2 - WhosAbhi.js';
@@ -9,15 +9,38 @@ import Footer from './components/pages/5 - Footer.js';
 // import ScrollDown from '../src/components/pages/ScrollDownFunction.js';
 
 function App() {
+  const [theme, setTheme] = useState('light'); // Default theme
+
   const homeRef = useRef(null);
   const whoisabhiRef = useRef(null);
   const projectsRef = useRef(null);
   // const aboutRef = useRef(null);
   const contactRef = useRef(null);
 
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+    document.body.setAttribute('data-theme', savedTheme); // Set body attribute
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+    setTheme(newTheme);
+    localStorage.setItem('theme', newTheme);
+    document.body.setAttribute('data-theme', newTheme);
+  };
+
   return (
     <Router>
       <div className="main-content">
+
+        {/* Theme Toggle Button */}
+        <div className="theme-toggle">
+        <button className="theme-toggle" onClick={toggleTheme}>
+          <i className={theme === 'light' ? 'fas fa-sun' : 'fas fa-moon'}></i>
+        </button>
+        </div>
+
         <div ref={homeRef}>
           <Home />
         </div>

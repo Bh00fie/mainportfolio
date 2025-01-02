@@ -6,6 +6,9 @@ import CV from '../documents/Abhinandanthour.pdf'
 function Home() {
     return (
         <div id='homePage'>
+            <div id='darkTheme'>  
+
+            </div>
             <div id='profileSection'>
                 <img className="profileCard" id='photoProfile' src={icon} alt='photoProfile'/>    
                 <div id='informationCard'>

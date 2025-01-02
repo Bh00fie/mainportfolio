@@ -71,6 +71,7 @@
 }
 #cvButton {
     background-color: var(--buttonColor);
+    color: var(--textColor);
     padding: 0.5rem;
     width: 100%;
     font-size: 1.5rem;
@@ -150,7 +151,7 @@ margin-bottom: 5vh;
 }
 
 .borderSection{
-    border-top: black 2px solid;
+    border-top: var(--textColor) 2px solid;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -182,7 +183,7 @@ margin-bottom: 5vh;
   .projectCard {
     position: absolute;
     width: 90%;
-    max-width: 20rem;
+    max-width: 30rem;
     height: 25rem;
     transition: all 0.5s ease;
   }
@@ -194,6 +195,10 @@ margin-bottom: 5vh;
     margin-top: 1rem;
   }
   
+  .card{
+    background-color: transparent !important;
+  }
+
   #cardSelector {
     display: flex;
     justify-content: center;
@@ -206,6 +211,8 @@ margin-bottom: 5vh;
   
   .arrow {
     background: none;
+    color: var(--buttonTextColor);
+    font-weight: bold;
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
@@ -215,18 +222,18 @@ margin-bottom: 5vh;
   .custom-active {
     background-color: var(--buttonColor) !important;
     border-color: var(--buttonColor) !important;
-    color: black !important;
+    color: var(--buttonTextColor) !important;
   }
   
   .custom-inactive {
     background-color: transparent !important;
     border-color: var(--buttonColor) !important;
-    color: black !important;
+    color: var(--buttonTextColor) !important;
   }
   
   .custom-inactive:hover {
     background-color: var(--buttonColor) !important;
-    color: black !important;
+    color: var(--buttonTextColor) !important;
   }
   
   @media (max-width: 64rem) {
@@ -301,9 +308,11 @@ margin-bottom: 5vh;
     flex-direction: column;
     justify-content: space-between;
     text-align: center;
+    color: var(--buttonTextColor) !important;
+    background-color: var(--buttonColor);
 }
 .card-title {
-    color: black!important;
+    color: var(--buttonTextColor) !important;
     font-weight: 600!important; 
 }
 
@@ -338,7 +347,7 @@ form{
     border-radius: 0.5rem;
     margin-bottom: 2rem;
     height: 3.5rem;
-    border: 2px black solid;
+    border: 2px var(--textColor) solid;
 }
 #messageFormInput {
     max-height: 12rem;
@@ -347,6 +356,7 @@ form{
 }
 #sendMessage {
     background-color: var(--buttonColor);
+    color: var(--buttonTextColor);
     border: none;
     font-weight: 600;
     margin-top: auto;
