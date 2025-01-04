@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './style.css';
-import coverLetterGenerator from '../Images/CoverLetterGeneator.png';
 
 function Projects() {
 
@@ -12,26 +11,27 @@ function Projects() {
     const cardInformation = [
         {
             title: "Workout Kitchen",
-            image: "https://github.com/Allen-EC/workout_kitchen/raw/main/assets/images/screenshot.png",
-            text: "Webpage to help improve your overall health! Using API the user can look for recipes based on what they have in stock and also select a an exercise based on the difficulty and type!",
+            image: "https://github.com/Bh00fie/workout_kitchen/blob/main/assets/images/screenshot.png?raw=true",
+            text: "Webpage to help improve your overall health by providing recipes based on what you have in stock!",
             linkProject: "https://allen-ec.github.io/workout_kitchen/"
         },  
         {
             title: "Cover Letter Generator with AI!",
-            image: coverLetterGenerator,
-            text: "Project that allows the user to upload their CV and the Job description to get a quick tailored cover letter using ChatGPT API!",
+            image: "https://github.com/Bh00fie/coverLetterGenerator/blob/main/frontend/src/components/images/screenshot.png?raw=true",
+            text: "Project that allows the user to upload their CV and Job description to get a tailored template for a cover letter!",
             linkProject: "https://reactcoverlettergenerator.netlify.app"
         },  
-        // {
-        //     title: "Mechanical Engineering Project",
-        //     image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
-        //     text: "Work In Progress",
-        // },  
-        // {
-        //     title: "Financial Portfolio Tracker",
-        //     image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
-        //     text: "Work In Progress",
-        // },  
+        {
+            title: "Weight Tracker",
+            image: "https://github.com/Bh00fie/Weight-Tracker/blob/main/public/screenshot.png?raw=true",
+            text: "Webapp to help you track your weight and support you in your weight loss journey!",
+            linkProject: "https://github.com/Bh00fie/Weight-Tracker"
+        },  
+        {
+            title: "Financial Portfolio Tracker",
+            image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
+            text: "Work In Progress",
+        },  
 
     ]
 
