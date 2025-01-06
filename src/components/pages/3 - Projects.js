@@ -28,9 +28,14 @@ function Projects() {
             linkProject: "https://github.com/Bh00fie/Weight-Tracker"
         },  
         {
-            title: "Financial Portfolio Tracker",
-            image: "https://ak.picdn.net/shutterstock/videos/1012114871/thumb/1.jpg?ip=x480",
-            text: "Work In Progress",
+            title: "Supply Chain Simulation,",
+            image: "https://github.com/Bh00fie/Manufacturing-CW2/blob/main/Images/CumulativeCostOverTime.png?raw=true",
+            text: "Script to calculate the production rate and ROI for Al and Li batteries on the manufacturing line!",
+        },  
+        {
+            title: "Temperature and Humidity Monitor",
+            image: "https://github.com/Bh00fie/ArduinoTemperatureCheck/blob/main/HardwarePhoto.png?raw=true",
+            text: "This project helps find the temperature humidity level in the envirorment with the help of Arduino!",
         },  
 
     ]
