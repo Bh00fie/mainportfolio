@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
-import icon from '../Images/icon.png'
+// import icon from '../Images/icon.png'
+import icon from '../Images/Professional_Headshot.png'
 import CV from '../documents/Abhinandanthour.pdf'
 
 function Home() {
@@ -14,7 +15,7 @@ function Home() {
                     {/* Card to get a quick introduction about me */}
                     <div className='profileCard montserratFont' id='profileDescription'>
                         <h3 id='nameProfile'> Abhinandan Thour </h3>
-                        <h4 id='jobProfile'> Full Stack Developer</h4>
+                        <h4 id='jobProfile'> Software Engineer</h4>
                         {/* Social Media links */}
                         <div id='socialProfile'> 
                             <a id='GitHub' className='socialLink' href='https://github.com/Bh00fie' target='_blank' rel="noreferrer" >GitHub</a>

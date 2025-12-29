@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import Home from './components/pages/1 - Home.js';
 import WhosAbhi from './components/pages/2 - WhosAbhi.js';
-import Projects from './components/pages/3 - Projects.js';
+// import Projects from './components/pages/3 - Projects.js';
 import Contactme from './components/pages/4 - Contactme.js';
 import Footer from './components/pages/5 - Footer.js';
 // import FixedCV from './components/pages/quickCV.js';
@@ -54,7 +54,7 @@ function App() {
         {/* <ScrollDown scrollToRef={projectsRef} /> */}
 
         <div className='borderSection' ref={projectsRef}>
-          <Projects />
+          {/* <Projects /> */}
         </div>
         {/* <ScrollDown scrollToRef={aboutRef} />
 
