@@ -17,6 +17,9 @@
      as a link colour on white (~4.9:1). */
   --accent: #c2410c;
   --accentText: #ffffff;
+  /* The hiker's backpack, deliberately not the accent. In light mode the hiker's
+     body is near-black, so this is lifted enough to separate from it. */
+  --pack: #2f52b5;
 
   --maxWidth: 60rem;
   --radius: 0.6rem;
@@ -39,6 +42,8 @@
   /* Flame orange, light enough to read on the near-black background. */
   --accent: #fb923c;
   --accentText: #16181a;
+  /* Lifted a little so it still reads as blue against the near-black. */
+  --pack: #3a5cab;
 }
 
 /* ---------- Base ---------- */
