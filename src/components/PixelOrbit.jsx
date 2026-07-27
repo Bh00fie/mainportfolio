@@ -90,8 +90,9 @@ function PixelOrbit({ theme }) {
         ctx.fillRect(centre + x, centre + y, 1, 1);
       }
 
-      // Satellite runs the same loop, two pixels per tick.
-      const [sxRaw, syRaw] = ring[(tick * 2) % ring.length];
+      // Satellite runs the same loop, one pixel per tick — still twice the
+      // dots' pace, but an unhurried orbit rather than a lap.
+      const [sxRaw, syRaw] = ring[tick % ring.length];
       const sx = centre + sxRaw - 2;
       const sy = centre + syRaw - 1;
       SATELLITE.forEach((row, y) => {
