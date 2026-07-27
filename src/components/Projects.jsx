@@ -49,7 +49,7 @@ function Projects() {
         {otherProjects.map((project, index) => (
           <React.Fragment key={project.name}>
             {index > 0 && ', '}
-            <a href={project.code} target="_blank" rel="noreferrer">
+            <a href={project.link} target="_blank" rel="noreferrer">
               {project.name}
             </a>
           </React.Fragment>

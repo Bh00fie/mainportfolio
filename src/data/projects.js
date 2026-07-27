@@ -10,6 +10,15 @@
 
 export const projects = [
   {
+    title: 'GCP Associate Cloud Engineer Practice App',
+    what: 'A practice-exam app for the Google Cloud ACE certification: 658 original questions written against the official exam guide, an explanation after every answer, and progress tracked across devices.',
+    interesting:
+      'The whole front end is plain HTML, CSS and JavaScript — no framework, no build step, so it runs by opening the file. Accounts and cross-device progress come from Firebase Auth and Firestore, with the security rules kept in the repo alongside the deployed version. There is also an in-app "explain this term" chat backed by Gemini, routed through a Netlify function so the API key stays server-side and never reaches the browser, with a system prompt that deliberately refuses to reveal which answer is correct. Installable as a PWA, with proper tap targets and safe-area handling on phones.',
+    tech: ['JavaScript', 'Firebase Auth', 'Firestore', 'Netlify Functions', 'Gemini API', 'PWA'],
+    live: 'https://gcpcloudengineering.netlify.app',
+    code: 'https://github.com/Bh00fie/cloud-engineering-practice',
+  },
+  {
     title: 'Personal Finance Dashboard',
     what: 'A local-first dashboard that ingests bank statements and spreadsheets, normalises them into a single transaction model, and renders the results as a browsable report.',
     interesting:
@@ -42,19 +51,14 @@ export const projects = [
     tech: ['Python', 'NumPy', 'Matplotlib'],
     code: 'https://github.com/Bh00fie/Manufacturing-CW2',
   },
-  {
-    title: 'Workout Kitchen',
-    what: 'A web app that suggests recipes based on the ingredients you already have, alongside matching exercise suggestions.',
-    interesting:
-      'A team build combining several third-party APIs behind one interface, with the usual reality of reconciling inconsistent response shapes and rate limits between providers.',
-    tech: ['JavaScript', 'HTML', 'CSS', 'REST APIs'],
-    live: 'https://allen-ec.github.io/workout_kitchen/',
-    code: 'https://github.com/Bh00fie/workout_kitchen',
-  },
 ];
 
 // Smaller builds, listed rather than given a card of their own.
 export const otherProjects = [
-  { name: 'Weight Tracker', code: 'https://github.com/Bh00fie/Weight-Tracker' },
-  { name: 'Arduino temperature & humidity monitor', code: 'https://github.com/Bh00fie/ArduinoTemperatureCheck' },
+  { name: 'Weight Tracker', link: 'https://weight-tracker-project.netlify.app/' },
+  { name: 'Workout Kitchen', link: 'https://allen-ec.github.io/workout_kitchen/' },
+  {
+    name: 'Arduino temperature & humidity monitor',
+    link: 'https://github.com/Bh00fie/ArduinoTemperatureCheck',
+  },
 ];
