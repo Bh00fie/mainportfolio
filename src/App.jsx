@@ -49,7 +49,7 @@ function App() {
         <Divider />
         <Contact />
       </main>
-      <Footer />
+      <Footer theme={theme} />
     </>
   );
 }
