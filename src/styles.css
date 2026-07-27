@@ -1,0 +1,692 @@
+/* ============================================================
+   Abhinandan Thour — portfolio styles
+   One stylesheet. Previously this was split across index.css and
+   style.css with overlapping rules that fought each other.
+   ============================================================ */
+
+/* ---------- Theme tokens ---------- */
+
+:root {
+  --bg: #ffffff;
+  --surface: #f4f5f7;
+  --surfaceRaised: #ffffff;
+  --border: #e2e5ea;
+  --text: #16181a;
+  --textMuted: #5b626b;
+  --accent: #1a56db;
+  --accentText: #ffffff;
+
+  --maxWidth: 60rem;
+  --radius: 0.6rem;
+  --navHeight: 3.75rem;
+
+  /* Space Grotesk carries the headings — it has some character without being a
+     novelty face. Inter does the reading. */
+  --fontDisplay: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --fontBody: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+:root[data-theme='dark'] {
+  --bg: #17191a;
+  --surface: #202324;
+  --surfaceRaised: #1c1f20;
+  --border: #2f3335;
+  --text: #dcdbd8;
+  --textMuted: #9aa0a4;
+  --accent: #8ab4ff;
+  --accentText: #16181a;
+}
+
+/* ---------- Base ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--fontBody);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--fontDisplay);
+  line-height: 1.25;
+  margin: 0;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Links are visibly links. The old rule stripped both colour and underline,
+   which made the social links indistinguishable from body text. */
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ---------- Layout ---------- */
+
+.mainContent {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section {
+  padding: 2.5rem 0 3.5rem;
+  /* Keeps anchored headings clear of the sticky nav. */
+  scroll-margin-top: calc(var(--navHeight) + 1rem);
+}
+
+/* ---------- Contour divider ---------- */
+
+.divider {
+  height: 2.75rem;
+  margin: 0.5rem 0;
+}
+
+.dividerSvg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.contour {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 1.5;
+  vector-effect: non-scaling-stroke;
+  /* Long enough to cover the path; the exact value only needs to exceed its length. */
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+}
+
+.contour:first-child {
+  stroke: var(--accent);
+  opacity: 0.55;
+}
+
+.divider.isRevealed .contour {
+  animation: drawContour 1.1s var(--ease) forwards;
+}
+
+@keyframes drawContour {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Nothing to draw if motion is off — just show the lines. */
+@media (prefers-reduced-motion: reduce) {
+  .contour {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Scroll reveal ---------- */
+
+/* Sections start slightly low and transparent, then settle once observed.
+   useReveal marks them revealed immediately under prefers-reduced-motion, and
+   the transition is neutralised by the global reduced-motion rule above. */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+  will-change: opacity, transform;
+}
+
+.reveal.isRevealed {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+.sectionTitle {
+  font-family: var(--fontDisplay);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--textMuted);
+  margin-bottom: 2rem;
+}
+
+.prose {
+  max-width: 42rem;
+}
+
+/* ---------- Nav ---------- */
+
+.siteNav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.siteNavInner {
+  max-width: var(--maxWidth);
+  height: var(--navHeight);
+  margin: 0 auto;
+  padding: 0 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.siteNavName {
+  font-family: var(--fontDisplay);
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.siteNavName:hover {
+  text-decoration: none;
+}
+
+.siteNavLinks {
+  display: flex;
+  gap: 1.25rem;
+  margin-left: auto;
+  font-size: 0.9rem;
+}
+
+.siteNavLinks a {
+  color: var(--textMuted);
+}
+
+.siteNavLinks a:hover {
+  color: var(--text);
+}
+
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background-color: var(--surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s var(--ease);
+  flex-shrink: 0;
+}
+
+.themeToggle:hover {
+  background-color: var(--border);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 34rem) {
+  .siteNavLinks {
+    gap: 0.85rem;
+    font-size: 0.8rem;
+  }
+  .siteNavName {
+    /* The nav links matter more than the name on a narrow screen. */
+    display: none;
+  }
+  .siteNavLinks {
+    margin-left: 0;
+  }
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  /* rem, not percentages. Percentage margins resolve against width, which is why
+     this section used to swallow 600px of a wide monitor. */
+  padding: 4rem 0 3.5rem;
+  scroll-margin-top: var(--navHeight);
+}
+
+/* The three.js node field sits behind the hero content and bleeds slightly past
+   the content column. It is decorative and must never intercept clicks. */
+.heroCanvas {
+  position: absolute;
+  inset: -2rem -6vw;
+  z-index: 0;
+  pointer-events: none;
+  /* Deliberately faint. It is texture behind the hero, and the name and skills
+     have to stay comfortably readable on top of it. */
+  opacity: 0.4;
+  /* Weighted to the right so the densest part sits clear of the copy, and faded
+     at the edges so it reads as background rather than a boxed widget. */
+  -webkit-mask-image: radial-gradient(ellipse at 78% 50%, #000 25%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 78% 50%, #000 25%, transparent 70%);
+}
+
+@media (max-width: 44rem) {
+  /* On a narrow screen the content fills the column, so there is nowhere for the
+     graph to sit without getting in the way. */
+  .heroCanvas {
+    display: none;
+  }
+}
+
+.hero > picture,
+.heroText {
+  position: relative;
+  z-index: 1;
+}
+
+.heroPhoto {
+  width: 11rem;
+  height: 11rem;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.heroName {
+  font-family: var(--fontDisplay);
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.heroRole {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0.35rem 0 0.15rem;
+}
+
+.heroContext {
+  color: var(--textMuted);
+  font-size: 0.95rem;
+  margin-bottom: 1.4rem;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.75rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surface);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+}
+
+/* Gentle lift on hover. 2px and a soft shadow — enough to feel responsive,
+   not enough to be a bounce. */
+.button:hover {
+  text-decoration: none;
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -8px rgb(0 0 0 / 45%);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.buttonPrimary {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accentText);
+}
+
+.buttonPrimary:hover {
+  filter: brightness(1.08);
+}
+
+/* ---------- Skills ---------- */
+
+.skills {
+  margin: 0;
+  display: grid;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+
+.skillGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skillGroup dt {
+  font-weight: 700;
+  color: var(--textMuted);
+  min-width: 8.5rem;
+}
+
+.skillGroup dd {
+  margin: 0;
+  color: var(--text);
+}
+
+@media (max-width: 44rem) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 2.5rem;
+    gap: 1.75rem;
+  }
+  .heroActions {
+    justify-content: center;
+  }
+  .skillGroup {
+    flex-direction: column;
+    gap: 0.1rem;
+    align-items: center;
+  }
+  .skillGroup dt {
+    min-width: 0;
+  }
+}
+
+/* ---------- Experience timeline ---------- */
+
+.timeline {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.timelineRole {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.timelineCompany {
+  font-weight: 500;
+  color: var(--textMuted);
+}
+
+.timelineMeta {
+  font-size: 0.85rem;
+  color: var(--textMuted);
+  margin: 0.2rem 0 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.timelineNow {
+  padding: 0.05rem 0.5rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: var(--accentText);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.timelineSummary {
+  margin-bottom: 0.75rem;
+}
+
+.timelineBullets {
+  display: grid;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.timelineBullets li {
+  position: relative;
+  padding-left: 1.1rem;
+  color: var(--textMuted);
+}
+
+.timelineBullets li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 0.3rem;
+  height: 0.3rem;
+  border-radius: 50%;
+  background-color: var(--accent);
+}
+
+/* ---------- Tags ---------- */
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--surface);
+  color: var(--textMuted);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+/* ---------- Projects ---------- */
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+  gap: 1.25rem;
+}
+
+.projectCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--surfaceRaised);
+  transition: border-color 0.2s ease, transform 0.25s var(--ease),
+    box-shadow 0.25s var(--ease);
+}
+
+.projectCard:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -14px rgb(0 0 0 / 50%);
+}
+
+.projectTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.projectWhat {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.projectInteresting {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--textMuted);
+}
+
+.projectLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: auto;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.projectNote {
+  color: var(--textMuted);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.projectsAlso {
+  margin-top: 1.5rem;
+  font-size: 0.88rem;
+  color: var(--textMuted);
+}
+
+/* Cards and roles rise in one after another once their section is revealed.
+   Implemented as an animation rather than a transition so the hover lift above
+   keeps its own transition and does not inherit the stagger delay. */
+.isRevealed .projectCard,
+.isRevealed .timelineItem {
+  animation: riseIn 0.5s var(--ease) backwards;
+}
+
+.projectGrid > :nth-child(2),
+.timeline > :nth-child(2) {
+  animation-delay: 0.08s;
+}
+.projectGrid > :nth-child(3),
+.timeline > :nth-child(3) {
+  animation-delay: 0.16s;
+}
+.projectGrid > :nth-child(4),
+.timeline > :nth-child(4) {
+  animation-delay: 0.24s;
+}
+.projectGrid > :nth-child(n + 5) {
+  animation-delay: 0.32s;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+}
+
+/* Small easter egg on the carbonara. */
+.wiggle {
+  display: inline-block;
+  cursor: default;
+}
+
+.wiggle:hover {
+  animation: wiggle 0.6s var(--ease);
+}
+
+@keyframes wiggle {
+  25% {
+    transform: rotate(-14deg) scale(1.15);
+  }
+  50% {
+    transform: rotate(12deg) scale(1.15);
+  }
+  75% {
+    transform: rotate(-7deg) scale(1.08);
+  }
+}
+
+/* ---------- Contact ---------- */
+
+.contactIntro {
+  margin-bottom: 1.5rem;
+}
+
+.contactList {
+  display: grid;
+  gap: 0.65rem;
+  font-size: 0.95rem;
+}
+
+.contactList li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.contactLabel {
+  min-width: 5.5rem;
+  font-weight: 700;
+  color: var(--textMuted);
+}
+
+/* ---------- Footer ---------- */
+
+.siteFooter {
+  max-width: var(--maxWidth);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 2.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--textMuted);
+}
+
+.siteFooter p {
+  margin: 0;
+}
