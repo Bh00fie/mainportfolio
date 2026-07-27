@@ -4,24 +4,28 @@ import headshotJpg from '../assets/headshot.jpg';
 import CV from '../assets/Abhinandanthour.pdf';
 import { skills } from '../data/experience';
 import HeroBackground from './HeroBackground';
+import PixelOrbit from './PixelOrbit';
 
 function Hero({ theme }) {
   return (
     <section id="top" className="hero">
       <HeroBackground theme={theme} />
 
-      <picture>
-        {/* Explicit dimensions so the largest element on the page does not shift layout. */}
-        <source srcSet={headshotWebp} type="image/webp" />
-        <img
-          className="heroPhoto"
-          src={headshotJpg}
-          width="600"
-          height="600"
-          alt="Abhinandan Thour"
-          fetchpriority="high"
-        />
-      </picture>
+      <div className="heroPhotoWrap">
+        <PixelOrbit theme={theme} />
+        <picture>
+          {/* Explicit dimensions so the largest element on the page does not shift layout. */}
+          <source srcSet={headshotWebp} type="image/webp" />
+          <img
+            className="heroPhoto"
+            src={headshotJpg}
+            width="600"
+            height="600"
+            alt="Abhinandan Thour"
+            fetchpriority="high"
+          />
+        </picture>
+      </div>
 
       <div className="heroText">
         <h1 className="heroName">Abhinandan Thour</h1>

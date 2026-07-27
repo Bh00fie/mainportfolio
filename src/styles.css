@@ -327,10 +327,33 @@ ol {
   }
 }
 
-.hero > picture,
+.hero > .heroPhotoWrap,
 .heroText {
   position: relative;
   z-index: 1;
+}
+
+/* The orbit canvas is centred on the photo and sized past its edge, so the ring
+   sits just outside the circle. */
+.heroPhotoWrap {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 16rem;
+  height: 16rem;
+}
+
+.heroPhotoWrap > picture,
+.pixelOrbit {
+  grid-area: 1 / 1;
+}
+
+.pixelOrbit {
+  width: 16rem;
+  height: 16rem;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  pointer-events: none;
 }
 
 .heroPhoto {
