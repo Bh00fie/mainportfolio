@@ -19,7 +19,13 @@ const LOGICAL = 64;
 const RING_RADIUS = 27;
 const DOT_SPACING = 4; // draw a dot every Nth pixel of the ring
 const ACCENT_EVERY = 5; // every Nth dot picks up the accent colour
-const TICK_MS = 90;
+
+// A short tick gives fine control over each element's pace while every position
+// still lands on a whole pixel. Dots and satellite advance one ring pixel every
+// N ticks: ~44s and ~19s for a full orbit respectively.
+const TICK_MS = 30;
+const DOT_STEP_TICKS = 7;
+const SATELLITE_STEP_TICKS = 3;
 
 // 5x3 satellite: solar panels either side of a body.
 const SATELLITE = ['p.b.p', 'pbbbp', 'p.b.p'];
@@ -81,18 +87,17 @@ function PixelOrbit({ theme }) {
     const draw = (tick) => {
       ctx.clearRect(0, 0, LOGICAL, LOGICAL);
 
-      // Dots advance one ring pixel every other tick, so they crawl rather than
-      // race, and always land exactly on a pixel the ring actually occupies.
-      const dotOffset = Math.floor(tick / 2);
+      // Dots crawl rather than race, and always land exactly on a pixel the
+      // ring actually occupies.
+      const dotOffset = Math.floor(tick / DOT_STEP_TICKS);
       for (let i = 0; i < dotCount; i += 1) {
         const [x, y] = ring[(i * DOT_SPACING + dotOffset) % ring.length];
         ctx.fillStyle = (i + dotOffset) % ACCENT_EVERY === 0 ? colours.accent : colours.dot;
         ctx.fillRect(centre + x, centre + y, 1, 1);
       }
 
-      // Satellite runs the same loop, one pixel per tick — still twice the
-      // dots' pace, but an unhurried orbit rather than a lap.
-      const [sxRaw, syRaw] = ring[tick % ring.length];
+      // Satellite runs the same loop at a little over twice the dots' pace.
+      const [sxRaw, syRaw] = ring[Math.floor(tick / SATELLITE_STEP_TICKS) % ring.length];
       const sx = centre + sxRaw - 2;
       const sy = centre + syRaw - 1;
       SATELLITE.forEach((row, y) => {
