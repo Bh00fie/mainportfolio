@@ -48,7 +48,12 @@ Four pieces, all reduced-motion safe:
 1. **Hero background** (`HeroBackground.jsx`) — a three.js node graph, dynamically imported. Paints one frame immediately, then animates via rAF; pauses off-screen and in hidden tabs. Hidden below 44rem.
 2. **Scroll reveal** (`useReveal`) — sections fade and rise once, then the observer disconnects.
 3. **Contour dividers** (`Divider.jsx`) — topographic ridge lines that draw themselves in via `stroke-dashoffset`; a nod to the hiking/maps side of things and the section separator.
-4. **Hover lifts** on buttons and project cards, plus a wiggle on the carbonara emoji.
+4. **Pixel canvases** (`PixelOrbit.jsx` around the headshot, `PixelTrail.jsx` above the footer) — tiny backing stores upscaled by CSS `image-rendering: pixelated`, colours read from the theme custom properties.
+5. **Hover lifts** on buttons and project cards, plus a wiggle on the carbonara emoji.
+
+**PixelOrbit motion — do not undo this.** The orbit quantises motion in *space and time*: it precomputes the ring as an ordered list of adjacent pixels (`buildRing` — 210 pixels, every consecutive pair adjacent) and steps along it on a 90ms tick, rather than rounding a rotating angle every rAF frame. The original version did the latter and visibly shook: rounding a continuously-moving value onto a 64px grid at 60fps makes each dot snap erratically between whole pixels, and at 4x upscale every snap is a 4px jump. Never drive the orbit from a float angle rounded per frame.
+
+**PixelTrail is deliberately different** — it scrolls on a float at full frame rate. It was changed to match the orbit's stepped timing and Abhinandan asked for it back as it was (2026-07-27). Leave it alone.
 
 **Testing gotcha:** Chrome suspends `IntersectionObserver` delivery entirely in background tabs, so nothing reveals and the hero canvas stays blank when the tab is not focused. This looks exactly like a broken observer but is not — verify with the tab in the foreground, or temporarily add `isRevealed` by hand.
 

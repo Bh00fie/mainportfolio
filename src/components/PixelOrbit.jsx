@@ -6,14 +6,51 @@ import React, { useEffect, useRef } from 'react';
 //
 // The satellite is a nod to the aerospace half of the background — the MEng
 // dissertation was on solid lubrication in space.
+//
+// Motion is quantised in BOTH space and time, which is what stops it looking
+// like it is shaking. Rounding a continuously-rotating angle onto a 64px grid
+// every frame makes each dot snap erratically between whole pixels, and at 4x
+// upscale one of those is a visible 4px jump. Instead the ring's pixels are
+// computed once into an ordered list, and everything advances by whole steps
+// along that list on a slow tick — so each dot moves exactly one pixel at a
+// time, evenly, the way hand-drawn pixel animation does.
 
-const LOGICAL = 64; // square canvas, in logical pixels
-const SCALE = 4;
+const LOGICAL = 64;
 const RING_RADIUS = 27;
-const DOT_COUNT = 40;
+const DOT_SPACING = 4; // draw a dot every Nth pixel of the ring
+const ACCENT_EVERY = 5; // every Nth dot picks up the accent colour
+const TICK_MS = 90;
 
-// 5x3 satellite: panels either side of a body.
+// 5x3 satellite: solar panels either side of a body.
 const SATELLITE = ['p.b.p', 'pbbbp', 'p.b.p'];
+
+// Walk a circle once and keep each distinct integer pixel, in order. The result
+// is a closed loop of adjacent pixels — stepping through it gives perfectly even
+// motion with no rounding jitter.
+function buildRing(radius) {
+  const points = [];
+  const samples = Math.ceil(2 * Math.PI * radius * 4);
+  let last = null;
+
+  for (let i = 0; i < samples; i += 1) {
+    const angle = (i / samples) * Math.PI * 2;
+    const x = Math.round(Math.cos(angle) * radius);
+    const y = Math.round(Math.sin(angle) * radius);
+    if (!last || last[0] !== x || last[1] !== y) {
+      points.push([x, y]);
+      last = [x, y];
+    }
+  }
+
+  // The walk closes on itself; drop the duplicate.
+  const first = points[0];
+  const final = points[points.length - 1];
+  if (points.length > 1 && first[0] === final[0] && first[1] === final[1]) {
+    points.pop();
+  }
+
+  return points;
+}
 
 function PixelOrbit({ theme }) {
   const canvasRef = useRef(null);
@@ -38,24 +75,25 @@ function PixelOrbit({ theme }) {
     };
 
     const centre = LOGICAL / 2;
+    const ring = buildRing(RING_RADIUS);
+    const dotCount = Math.floor(ring.length / DOT_SPACING);
 
-    const draw = (t) => {
+    const draw = (tick) => {
       ctx.clearRect(0, 0, LOGICAL, LOGICAL);
 
-      // Marching dots around the ring. Every fifth one is accented so the
-      // rotation is legible without the whole ring shouting.
-      for (let i = 0; i < DOT_COUNT; i += 1) {
-        const angle = (i / DOT_COUNT) * Math.PI * 2 + t * 0.01;
-        const x = Math.round(centre + Math.cos(angle) * RING_RADIUS);
-        const y = Math.round(centre + Math.sin(angle) * RING_RADIUS);
-        ctx.fillStyle = i % 5 === 0 ? colours.accent : colours.dot;
-        ctx.fillRect(x, y, 1, 1);
+      // Dots advance one ring pixel every other tick, so they crawl rather than
+      // race, and always land exactly on a pixel the ring actually occupies.
+      const dotOffset = Math.floor(tick / 2);
+      for (let i = 0; i < dotCount; i += 1) {
+        const [x, y] = ring[(i * DOT_SPACING + dotOffset) % ring.length];
+        ctx.fillStyle = (i + dotOffset) % ACCENT_EVERY === 0 ? colours.accent : colours.dot;
+        ctx.fillRect(centre + x, centre + y, 1, 1);
       }
 
-      // Satellite running the same orbit, a little faster than the dots.
-      const satAngle = t * 0.022;
-      const sx = Math.round(centre + Math.cos(satAngle) * RING_RADIUS) - 2;
-      const sy = Math.round(centre + Math.sin(satAngle) * RING_RADIUS) - 1;
+      // Satellite runs the same loop, two pixels per tick.
+      const [sxRaw, syRaw] = ring[(tick * 2) % ring.length];
+      const sx = centre + sxRaw - 2;
+      const sy = centre + syRaw - 1;
       SATELLITE.forEach((row, y) => {
         for (let x = 0; x < row.length; x += 1) {
           if (row[x] === '.') continue;
@@ -79,17 +117,23 @@ function PixelOrbit({ theme }) {
     );
     visibility.observe(canvas);
 
-    let t = 0;
+    // rAF drives the loop so it stays in step with the display and stops in
+    // background tabs, but a frame is only drawn when the tick advances.
+    let tick = 0;
+    let lastAdvance = 0;
     let frameId;
-    const tick = () => {
-      frameId = requestAnimationFrame(tick);
+
+    const loop = (now) => {
+      frameId = requestAnimationFrame(loop);
       if (!onScreen || document.hidden) return;
-      t += 1;
-      draw(t);
+      if (now - lastAdvance < TICK_MS) return;
+      lastAdvance = now;
+      tick += 1;
+      draw(tick);
     };
 
     draw(0);
-    tick();
+    frameId = requestAnimationFrame(loop);
 
     return () => {
       cancelAnimationFrame(frameId);
