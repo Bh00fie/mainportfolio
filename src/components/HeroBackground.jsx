@@ -32,7 +32,13 @@ function HeroBackground({ theme }) {
       .then((THREE) => {
         if (disposed) return;
 
-        const accent = theme === 'dark' ? 0x8ab4ff : 0x1a56db;
+        // Read the accent from CSS rather than hardcoding it, so changing the
+        // token in one place recolours the graph too.
+        const accentVar = getComputedStyle(document.documentElement)
+          .getPropertyValue('--accent')
+          .trim();
+        const parsed = /^#([0-9a-f]{6})$/i.exec(accentVar);
+        const accent = parsed ? parseInt(parsed[1], 16) : 0xfb923c;
 
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(

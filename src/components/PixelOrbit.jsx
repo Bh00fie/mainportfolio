@@ -76,7 +76,7 @@ function PixelOrbit({ theme }) {
     const read = (name, fallback) => styles.getPropertyValue(name).trim() || fallback;
     const colours = {
       dot: read('--border', '#e2e5ea'),
-      accent: read('--accent', '#1a56db'),
+      accent: read('--accent', '#c2410c'),
       body: read('--textMuted', '#5b626b'),
     };
 

@@ -51,7 +51,7 @@ function PixelTrail({ theme }) {
       ground: read('--text', '#16181a'),
       body: read('--text', '#16181a'),
       skin: read('--textMuted', '#5b626b'),
-      pack: read('--accent', '#1a56db'),
+      pack: read('--accent', '#c2410c'),
     };
 
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;

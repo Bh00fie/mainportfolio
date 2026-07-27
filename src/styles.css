@@ -13,7 +13,9 @@
   --border: #e2e5ea;
   --text: #16181a;
   --textMuted: #5b626b;
-  --accent: #1a56db;
+  /* Burnt orange: dark enough to carry white button text and to pass contrast
+     as a link colour on white (~4.9:1). */
+  --accent: #c2410c;
   --accentText: #ffffff;
 
   --maxWidth: 60rem;
@@ -34,7 +36,8 @@
   --border: #2f3335;
   --text: #dcdbd8;
   --textMuted: #9aa0a4;
-  --accent: #8ab4ff;
+  /* Flame orange, light enough to read on the near-black background. */
+  --accent: #fb923c;
   --accentText: #16181a;
 }
 

@@ -39,6 +39,8 @@ Sections are anchors on one page (`#about`, `#experience`, `#projects`, `#contac
 - **No CSS framework.** Bootstrap and Font Awesome were removed; the two icons the site needs are inline SVG. Keep it that way — they cost ~300 KB on the critical path for very little.
 - Theme is `data-theme` on `<html>`, set by an inline script in `index.html` *before first paint* to avoid a flash. React reads the applied value rather than setting it in an effect. Don't move this into a `useEffect`.
 - All colours come from CSS custom properties defined in `styles.css`. Both light and dark must work; check both after any visual change.
+- The accent is warm (burnt orange `#c2410c` light, flame `#fb923c` dark). Everything reads `--accent` at runtime, including the three.js graph and both pixel canvases — don't reintroduce a hardcoded accent hex. The generated assets in `public/` bake it in, so changing the token means regenerating them.
+- Favicons are the **footer hiker sprite**, not the headshot: 16x16 grid, nearest-neighbour upscaled, shipped as `favicon.svg` plus a real multi-size `.ico` (16/32/48) and the PNG icons. If the sprite in `PixelTrail.jsx` changes, the icons need regenerating to match. The OG card keeps the photo — that's a social preview at a size where a face reads.
 - Animations respect `prefers-reduced-motion`. The three.js hero background does not run at all when reduced motion is requested.
 
 ## Motion
