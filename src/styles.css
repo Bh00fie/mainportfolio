@@ -156,8 +156,9 @@ ol {
   fill: none;
   stroke: var(--border);
   stroke-width: 1.5;
-  vector-effect: non-scaling-stroke;
-  /* Long enough to cover the path; the exact value only needs to exceed its length. */
+  /* In user units, so it covers the ~603-unit path at any screen width or pixel
+     density. Do not add vector-effect: non-scaling-stroke: that measures dashes in
+     device pixels, and on wide or high-density screens the lines ran out early. */
   stroke-dasharray: 800;
   stroke-dashoffset: 800;
 }
@@ -243,10 +244,6 @@ ol {
   text-transform: uppercase;
   color: var(--textMuted);
   margin-bottom: 2rem;
-}
-
-.prose {
-  max-width: 42rem;
 }
 
 /* ---------- Nav ---------- */
