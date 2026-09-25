@@ -80,7 +80,7 @@ export const skills = [
   { group: 'Cloud', items: ['GCP', 'Azure', 'AWS (S3, EC2, Lambda)'] },
   {
     group: 'Data & warehousing',
-    items: ['SQL Server', 'SSIS', 'SSAS', 'SSRS', 'Databricks', 'Redshift', 'Power BI'],
+    items: ['SQL Server', 'SSIS', 'SSAS', 'SSRS', 'Databricks', 'Redshift'],
   },
-  { group: 'Front end & mobile', items: ['React', 'Next.js', 'React Native', 'Expo'] },
+  { group: 'Front end & BI', items: ['React', 'Power BI'] },
 ];
