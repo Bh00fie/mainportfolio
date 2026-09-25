@@ -13,7 +13,7 @@ npm run preview  # serve the built output
 
 Netlify: build command `npm run build`, publish directory `dist`. `public/_redirects` keeps the SPA fallback.
 
-**Node:** the repo is developed on Node 18.18.2, which is past end-of-life. Vite is pinned to v5 because v6+ needs newer Node. Upgrading to Node 20 LTS is worth doing; several tools (including current `sharp`) already refuse to install on 18.
+**Node 24 is required** — `.nvmrc`, and pinned for Netlify in `netlify.toml`. Vite 8 runs on rolldown, which will not start on older Node. The dev machine's system Node is still 18.18.2, so until that is upgraded (`winget install OpenJS.NodeJS.LTS`) local builds go through a portable Node 24 unpacked into the session scratchpad. Install dependencies with *that* Node's npm too: npm on 18 silently skips rolldown's native Windows binding.
 
 ## Layout
 
@@ -23,7 +23,9 @@ src/
   main.jsx            React root
   App.jsx             Section order + theme state
   styles.css          The entire stylesheet
-  components/         Nav, Hero, About, Experience, Projects, Contact, Footer
+  components/         Nav, Hero, About, Experience, Projects, Contact, Footer,
+                      plus HeroBackground, PixelOrbit, PixelTrail, Divider (motion)
+  hooks/useReveal.js  Scroll-reveal observer
   data/
     experience.js     Roles, education, skills
     projects.js       Project cards
@@ -53,7 +55,7 @@ Four pieces, all reduced-motion safe:
 4. **Pixel canvases** (`PixelOrbit.jsx` around the headshot, `PixelTrail.jsx` above the footer) — tiny backing stores upscaled by CSS `image-rendering: pixelated`, colours read from the theme custom properties.
 5. **Hover lifts** on buttons and project cards, plus a wiggle on the carbonara emoji.
 
-**PixelOrbit motion — do not undo this.** The orbit quantises motion in *space and time*: it precomputes the ring as an ordered list of adjacent pixels (`buildRing` — 210 pixels, every consecutive pair adjacent) and steps along it on a 90ms tick, rather than rounding a rotating angle every rAF frame. The original version did the latter and visibly shook: rounding a continuously-moving value onto a 64px grid at 60fps makes each dot snap erratically between whole pixels, and at 4x upscale every snap is a 4px jump. Never drive the orbit from a float angle rounded per frame.
+**PixelOrbit motion — do not undo this.** The orbit quantises motion in *space and time*: it precomputes the ring as an ordered list of adjacent pixels (`buildRing` — 210 pixels, every consecutive pair adjacent) and steps along it by whole pixels on a 30ms tick — dots every 7 ticks (~44s per orbit), the satellite every 3 (~19s) — rather than rounding a rotating angle every rAF frame. The original version did the latter and visibly shook: rounding a continuously-moving value onto a 64px grid at 60fps makes each dot snap erratically between whole pixels, and at 4x upscale every snap is a 4px jump. Never drive the orbit from a float angle rounded per frame.
 
 **PixelTrail is deliberately different** — it scrolls on a float at full frame rate. It was changed to match the orbit's stepped timing and Abhinandan asked for it back as it was (2026-07-27). Leave it alone.
 
@@ -61,13 +63,15 @@ Four pieces, all reduced-motion safe:
 
 ## Positioning — read before editing copy
 
-The site presents Abhinandan as a **Data Engineer**, not a Software Engineer or Full Stack Developer. It previously claimed all three in different places. The CV at `src/assets/Abhinandanthour.pdf` is the source of truth; keep the site consistent with it.
+The site presents Abhinandan as a **Software Engineer**. Every role title reads "Software Engineer" — never "Data Engineer" and never "Full Stack Developer".
 
-Current (confirmed by Abhinandan 2026-07-27, and **more current than the CV PDF** — the CV still describes the previous team): Data Engineer, Lloyds Banking Group, on the **Economic Crime Prevention Platform's Agentic AI team**, building AI agents for customer fraud journeys in Python + Google ADK on GCP, with a React/TypeScript front end on the Interstellar framework. Previously within Lloyds: Balance Sheet Management & Regulatory Reporting Lab (Source Extract Database team) — C#, SQL Server, SSIS/SSAS/SSRS, securitisation, FTP, LCR, asset encumbrance.
+**He has never held a Data Engineer title.** An earlier pass of this site used it for both the Lloyds and Accenture roles, and he corrected that on 2026-09-25. His formal Lloyds title is "Graduate Technology Engineer"; he asked for plain "Software Engineer" on the site — do not use "Graduate" anywhere. The Accenture work and the Lloyds regulatory-reporting work were genuinely data-heavy (pipelines, SQL Server, SSIS), and the bullets can and do say so — but that describes the work, not the title.
 
-Before Lloyds: Data Engineer at Accenture (Mar–Sep 2025), NPI Manufacturing Engineer at Cummins (Aug 2022–Aug 2023), MEng Mech/Aero 2:1 Southampton (2019–2024), dissertation "Solid Lubrication in Space with Nitrogen-doped MoS₂".
+Current (from his LinkedIn, pasted 2026-09-25): Software Engineer, Lloyds Banking Group, Sep 2025–present, Leeds, hybrid, on the **Economic Crime Prevention Platform's Agentic AI team**, building AI agents for customer fraud journeys in Python + Google ADK on GCP, with a React/TypeScript front end on the Interstellar framework. Previously within Lloyds: Balance Sheet Management & Regulatory Reporting Lab (Source Extract Database team) — C#, SQL Server, SSIS/SSAS/SSRS, securitisation, FTP, LCR, asset encumbrance.
 
-**The CV PDF is out of date on the current role.** Where they disagree, `src/data/experience.js` wins. LinkedIn is the most current source of all but cannot be fetched programmatically (it returns HTTP 999 to any automated request), so career updates have to be pasted in by hand.
+Before Lloyds: Software Engineer at Accenture (Mar–Sep 2025), NPI Manufacturing Engineer at Cummins (Aug 2022–Aug 2023), MEng Mech/Aero 2:1 Southampton (2019–2024), dissertation "Solid Lubrication in Space with Nitrogen-doped MoS₂".
+
+**The CV PDF is out of date** — it still describes the previous Lloyds team, and still says "Data Engineer" for both Lloyds and Accenture, which now contradicts the site. Where they disagree, `src/data/experience.js` wins. LinkedIn is the most current source of all but cannot be fetched programmatically (it returns HTTP 999 to any automated request), so career updates have to be pasted in by hand.
 
 ### Two hard content rules
 
