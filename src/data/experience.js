@@ -15,12 +15,13 @@ export const experience = [
     current: true,
     summary: 'Economic Crime Prevention Platform — Agentic AI team.',
     bullets: [
-      'Part of the Agentic AI team on the Economic Crime Prevention Platform, focused on fraud prevention: building and enhancing AI agents that support customer fraud journeys, in Python with Google ADK on GCP.',
+      'Part of the Agentic AI team on the Economic Crime Prevention Platform, focused on fraud prevention: creating AI agents that automate fraud processes and support customer fraud journeys, in Python and Java with Google ADK on GCP.',
       'Contribute to the front end for those journeys in React and TypeScript, on the Interstellar framework.',
       'Previously in the Balance Sheet Management & Regulatory Reporting Lab (Source Extract Database team), supporting delivery of financial risk management and regulatory reporting projects — developing and maintaining data and reporting solutions for securitisation, funds transfer pricing, liquidity coverage ratio (LCR) and asset encumbrance in C#, SQL Server, SSIS, SSRS and SSAS.',
     ],
     tech: [
       'Python',
+      'Java',
       'Google ADK',
       'GCP',
       'React',
@@ -74,7 +75,7 @@ export const education = {
 
 // Grouped rather than rated. Progress bars and star ratings are unfalsifiable.
 export const skills = [
-  { group: 'Languages', items: ['Python', 'C#', 'SQL', 'TypeScript', 'JavaScript'] },
+  { group: 'Languages', items: ['Python', 'Java', 'C#', 'SQL', 'TypeScript', 'JavaScript'] },
   { group: 'AI & agents', items: ['Google ADK', 'Agentic workflows', 'OpenAI API'] },
   { group: 'Cloud', items: ['GCP', 'Azure', 'AWS (S3, EC2, Lambda)'] },
   {

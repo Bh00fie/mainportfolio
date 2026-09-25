@@ -1,5 +1,5 @@
 import React from 'react';
-import { projects, otherProjects } from '../data/projects';
+import { projects } from '../data/projects';
 import useReveal from '../hooks/useReveal';
 
 // Static grid rather than a carousel: everything is visible at once, it degrades
@@ -43,19 +43,6 @@ function Projects() {
           </li>
         ))}
       </ul>
-
-      <p className="projectsAlso">
-        Also built:{' '}
-        {otherProjects.map((project, index) => (
-          <React.Fragment key={project.name}>
-            {index > 0 && ', '}
-            <a href={project.link} target="_blank" rel="noreferrer">
-              {project.name}
-            </a>
-          </React.Fragment>
-        ))}
-        .
-      </p>
     </section>
   );
 }
