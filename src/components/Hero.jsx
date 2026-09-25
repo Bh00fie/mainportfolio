@@ -29,7 +29,7 @@ function Hero({ theme }) {
 
       <div className="heroText">
         <h1 className="heroName">Abhinandan Thour</h1>
-        <p className="heroRole">Data Engineer</p>
+        <p className="heroRole">Software Engineer</p>
         <p className="heroContext">
           Leeds, UK &middot; Agentic AI &amp; fraud prevention in banking
         </p>

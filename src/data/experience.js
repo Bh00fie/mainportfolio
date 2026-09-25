@@ -1,22 +1,23 @@
 // Work history and education, kept as data so the timeline component stays presentational.
-// Source of truth is the CV in src/assets/documents. Keep the two in sync.
+// Source of truth is what Abhinandan supplies from LinkedIn — the CV PDF in
+// src/assets lags behind it. Where they disagree, this file wins.
 //
 // NOTE: the Accenture client is under NDA. Describe the programme and the stack,
 // never the client name.
 
 export const experience = [
   {
-    role: 'Data Engineer',
+    role: 'Software Engineer',
     company: 'Lloyds Banking Group',
-    location: 'Leeds',
+    location: 'Leeds · Hybrid',
     start: 'Sep 2025',
     end: 'Present',
     current: true,
     summary: 'Economic Crime Prevention Platform — Agentic AI team.',
     bullets: [
-      'Build and enhance AI agents supporting customer fraud journeys on the Economic Crime Prevention Platform, working in Python with Google ADK on GCP.',
+      'Part of the Agentic AI team on the Economic Crime Prevention Platform, focused on fraud prevention: building and enhancing AI agents that support customer fraud journeys, in Python with Google ADK on GCP.',
       'Contribute to the front end for those journeys in React and TypeScript, on the Interstellar framework.',
-      'Previously in the Balance Sheet Management & Regulatory Reporting Lab (Source Extract Database team), developing and maintaining data and reporting solutions across securitisation, funds transfer pricing, liquidity coverage ratio (LCR) and asset encumbrance in C#, SQL Server, SSIS, SSRS and SSAS.',
+      'Previously in the Balance Sheet Management & Regulatory Reporting Lab (Source Extract Database team), supporting delivery of financial risk management and regulatory reporting projects — developing and maintaining data and reporting solutions for securitisation, funds transfer pricing, liquidity coverage ratio (LCR) and asset encumbrance in C#, SQL Server, SSIS, SSRS and SSAS.',
     ],
     tech: [
       'Python',
@@ -32,12 +33,12 @@ export const experience = [
     ],
   },
   {
-    role: 'Data Engineer',
+    role: 'Software Engineer',
     company: 'Accenture',
     location: 'Newcastle upon Tyne',
     start: 'Mar 2025',
     end: 'Sep 2025',
-    summary: 'Data engineering on a large-scale fintech programme for a UK financial institution.',
+    summary: 'Software engineering on a large-scale fintech programme.',
     bullets: [
       'Built and maintained data pipelines and reporting on a large-scale fintech programme, working in Python, SQL, Azure and Databricks with Power BI for downstream reporting.',
       'Designed and shipped a cloud ETL pipeline end to end in a five-week delivery, covering the full SDLC from initiation through to deployment and monitoring.',
@@ -78,7 +79,7 @@ export const skills = [
   { group: 'Cloud', items: ['GCP', 'Azure', 'AWS (S3, EC2, Lambda)'] },
   {
     group: 'Data & warehousing',
-    items: ['SQL Server', 'SSIS', 'SSAS', 'SSRS', 'Databricks', 'Redshift'],
+    items: ['SQL Server', 'SSIS', 'SSAS', 'SSRS', 'Databricks', 'Redshift', 'Power BI'],
   },
-  { group: 'Front end & BI', items: ['React', 'Power BI'] },
+  { group: 'Front end & mobile', items: ['React', 'Next.js', 'React Native', 'Expo'] },
 ];

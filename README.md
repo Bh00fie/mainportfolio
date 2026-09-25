@@ -1,6 +1,6 @@
 # abhinandanthour.com
 
-Personal site for Abhinandan Thour — data engineer, Leeds. Single-page React app built with Vite, deployed on Netlify.
+Personal site for Abhinandan Thour — software engineer, Leeds. Single-page React app built with Vite, deployed on Netlify.
 
 ## Running it
 

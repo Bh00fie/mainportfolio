@@ -10,7 +10,7 @@ function About() {
 
       <div className="prose">
         <p>
-          I'm a Data Engineer at Lloyds Banking Group in Leeds, on the Economic Crime Prevention
+          I'm a Software Engineer at Lloyds Banking Group in Leeds, on the Economic Crime Prevention
           Platform's Agentic AI team. I build AI agents that support customers going through fraud
           journeys — Python and Google ADK on GCP, with a React and TypeScript front end. Fraud is
           a good problem to work on: the cost of getting it wrong lands on a real person, in both
@@ -25,7 +25,7 @@ function About() {
           and built a cloud ETL pipeline end to end on AWS.
         </p>
         <p>
-          I didn't start in data. I read Mechanical and Aerospace Engineering at the University of
+          I didn't start in software. I read Mechanical and Aerospace Engineering at the University of
           Southampton — my dissertation was on solid lubrication in space using nitrogen-doped
           MoS₂ — then spent a year at Cummins as an NPI Manufacturing Engineer, running analysis
           for engine programmes and introducing VR and 3D printing into prototyping. That

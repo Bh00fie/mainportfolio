@@ -12,7 +12,7 @@ function Contact() {
       <h2 className="sectionTitle">Get in touch</h2>
 
       <p className="prose contactIntro">
-        Open to conversations about data engineering roles, regulatory reporting and platform work
+        Open to conversations about software engineering roles, AI agents and platform work
         — or anything I've built here.
       </p>
 
